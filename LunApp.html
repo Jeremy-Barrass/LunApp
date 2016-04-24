@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>LunApp</title>
+	<script src="src/jquery-2.2.0.js"></script>
+	<script src="src/moonLocator.js"></script>
+	<script type="text/javascript" src="https://www.google.com/jsapi"> </script>
+	<script type="text/javascript">
+	    var ge;
+	    google.load("earth", "1", {"other_params":"sensor=true"});
+
+	    function init() {
+	      google.earth.createInstance('map3d', initCB, failureCB);
+	    }
+
+	    function initCB(instance) {
+	      ge = instance;
+	      ge.getOptions().setMapType(ge.MAP_TYPE_SKY);
+	      ge.getWindow().setVisibility(true);
+	      console.log(ge)
+	    }
+
+	    function failureCB(errorCode) {
+	    }
+
+	    google.setOnLoadCallback(init);
+	</script>
+
+</head>
+<body>
+  <div id="map3d" style="height: 400px; width: 600px;"></div>
+</body>
+</html>
